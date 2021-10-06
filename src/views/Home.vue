@@ -1,5 +1,26 @@
 <template>
   <div class="home">
+
+    <div class="hero bg-gray-100 mb-24">
+      <div class="container mx-auto px-4 py-10 flex items-center justify-between">
+        <div>
+          <h1 class="font-bold">Book recommendation site built with GraphQL</h1>
+          <p>Built with Laravel, Vue and Tailwind</p>
+          <div class="flex items-center mt-4">
+            <a href="#" class="border border-purple-600 border-solid bg-purple-600 text-white rounded p-4 mr-4 hover:bg-purple-700">
+              View Books
+            </a>
+            <a href="#" class="border border-purple-600 border-solid rounded p-4 text-purple-600 hover:bg-purple-600 hover:text-white">
+              View Screencasts
+            </a>
+          </div>
+        </div>
+        <figure>
+          <img src="../assets/hero.svg" alt="hero">
+        </figure>
+      </div>
+    </div>
+
     <div v-if="loadingCategories">Loading...</div>
     <div v-else>
       <a href="#" class="link-margin" @click.prevent="getCategory('all')">All</a>
@@ -96,8 +117,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .link-margin{
-    margin-right: 24px;
-  }
-</style>
