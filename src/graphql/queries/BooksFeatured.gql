@@ -1,0 +1,8 @@
+query {
+  books: booksByFeature(featured: true) {
+    id
+    title
+    author
+    image
+  }
+}
