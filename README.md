@@ -1,4 +1,7 @@
-# vue-graphql-app
+# Books recommendation site built with Vue + GraphQL
+
+![image](https://user-images.githubusercontent.com/6644833/136570724-8e40f570-c770-4cb5-8991-aca6c8659069.png)
+
 
 ## Project setup
 ```
