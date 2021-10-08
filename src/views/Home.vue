@@ -21,27 +21,41 @@
       </div>
     </div>
 
-    <div v-if="loadingCategories">Loading...</div>
-    <div v-else>
-      <a href="#" class="link-margin" @click.prevent="getCategory('all')">All</a>
-      <a href="#" class="link-margin" @click.prevent="getCategory('featured')">Featured</a>
-      <a href="#" v-for="category of categories" 
-        :key="category.id" 
-        class="link-margin" 
-        @click.prevent="getCategory(category.id)"
-        >
-        {{ category.name }}
-      </a>
-    </div>
-   
-    <div v-if="loadingBooks">Loading...</div>
-    <div v-else>
-      <div v-for="book in books" :key="book.id" class="link-margin">
-        <router-link :to="`/books/${book.id}`">{{ book.title }}</router-link>
-        <div>{{ book.author }}</div>
-        <img :src="book.image" alt="Cover image">
+    <section class="container mx-auto px-4 flex min-h-screen">
+      <div class="flex flex-col pr-4">
+        <template v-if="loadingCategories">
+          <div>Loading...</div>
+        </template>
+        <template v-else>
+          <a href="#" class="link-margin" @click.prevent="getCategory('all')">All</a>
+          <a href="#" class="link-margin" @click.prevent="getCategory('featured')">Featured</a>
+          <a href="#" v-for="category of categories" 
+            :key="category.id" 
+            class="link-margin" 
+            @click.prevent="getCategory(category.id)"
+            >
+            {{ category.name }}
+          </a>
+        </template>
       </div>
-    </div>
+    
+      <div class="books grid grid-cols-3 gap-6 w-full">
+        <template v-if="loadingBooks">
+          <div>Loading...</div>
+        </template>
+        <template v-else>
+          <router-link v-for="book in books" :key="book.id" :to="`/books/${book.id}`">
+            <figure class="flex justify-center items-center flex-col text-center">
+              <figcaption>
+                <div>{{ book.title }}</div>
+                <div>{{ book.author }}</div>
+              </figcaption>
+              <img :src="book.image" alt="Cover image" class="hover:opacity-90">
+            </figure>
+          </router-link>
+        </template>
+      </div>
+    </section>
       
   </div>
 </template>
